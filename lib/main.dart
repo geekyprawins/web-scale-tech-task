@@ -4,6 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:webscaletech_task/models/launch_data.dart';
+import 'package:webscaletech_task/services/firebase_service.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -69,32 +70,30 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("SpaceX"),
+        title: const Text("SpaceX Upcoming Launches"),
       ),
       body: Center(
         child:
         (upcmngLaunches.isEmpty) ?
-        CircularProgressIndicator() :
+        const CircularProgressIndicator() :
         ListView.builder(itemBuilder: (context, index) {
-          final String name = upcmngLaunches[index].missionName;
-          final String flightNo = upcmngLaunches[index].flightNumber.toString();
+          final LaunchData launchData = upcmngLaunches[index];
+          final String name = launchData.missionName;
+          final String flightNo = launchData.flightNumber.toString();
           return ListTile(title: Text(name),
-            subtitle: Text(flightNo),);
+            subtitle: Text(flightNo),
+          leading: Text(launchData.rocket.rocketName),
+          trailing: IconButton(onPressed: () {
+            //TODO: add to db
+            FirebaseService.addLaunchDataToCollection(launchData);
+            ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Added to Watch Later"),),);
+          }, icon: const Icon(
+            Icons.watch_later_outlined
+          ),
+          ),);
         },
         itemCount: upcmngLaunches.length,
-        )
-
-        // FutureBuilder(
-        //   builder: (BuildContext context, AsyncSnapshot<List<LaunchData>> snapshot) {
-        //   return ListView.builder(itemBuilder: (context, index) {
-        //     final String name = snapshot.data![index].missionName;
-        //     final String flightNo = snapshot.data![index].flightNumber.toString();
-        //     return ListTile(title: Text(name),
-        //       subtitle: Text(flightNo),);
-        //   },);
-        // },
-        //   future: getLaunchData(),
-        // ),
+        ),
       ),
       // This trailing comma makes auto-formatting nicer for build methods.
     );
