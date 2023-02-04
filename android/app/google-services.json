@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "1047714509488",
+    "project_id": "webscaletech-task",
+    "storage_bucket": "webscaletech-task.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1047714509488:android:203e1308ae3c1d15890175",
+        "android_client_info": {
+          "package_name": "com.praveenvarma.webscaletech_task"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1047714509488-6mmtms5pernpl5q9437upcg3kbsf3bf1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATLiMJfOKbHuT4HX-XkLevQ-2Lt1HqhXo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1047714509488-6mmtms5pernpl5q9437upcg3kbsf3bf1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1047714509488-t4bq49v6a1jgea448c2lna6k47m84uep.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.praveenvarma.webscaletechTask"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
