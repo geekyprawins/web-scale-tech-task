@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:webscaletech_task/models/launch_data.dart';
-import 'package:webscaletech_task/services/firebase_service.dart';
 
-import '../utils/constants.dart';
-import '../widgets/launchdata_tile.dart';
+import 'package:webscaletech_task/widgets/launchdata_tile.dart';
 
 class UpcomingLaunches extends StatelessWidget {
   const UpcomingLaunches({
