@@ -1,10 +1,7 @@
-// To parse this JSON data, do
-//
-//     final launchData = launchDataFromJson(jsonString);
-
 import 'dart:convert';
 
-LaunchData launchDataFromJson(String str) => LaunchData.fromJson(json.decode(str));
+LaunchData launchDataFromJson(String str) =>
+    LaunchData.fromJson(json.decode(str));
 
 String launchDataToJson(LaunchData data) => json.encode(data.toJson());
 
@@ -30,26 +27,26 @@ class LaunchData {
   final LaunchSite launchSite;
 
   factory LaunchData.fromJson(Map<String, dynamic> json) => LaunchData(
-    flightNumber: json["flight_number"] ,
-    missionName: json["mission_name"],
-    launchYear: json["launch_year"],
-    launchDateUnix: json["launch_date_unix"],
-    launchDateUtc: DateTime.parse(json["launch_date_utc"]),
-    launchDateLocal: DateTime.parse(json["launch_date_local"]),
-    rocket: Rocket.fromJson(json["rocket"]),
-    launchSite: LaunchSite.fromJson(json["launch_site"]),
-  );
+        flightNumber: json["flight_number"],
+        missionName: json["mission_name"],
+        launchYear: json["launch_year"],
+        launchDateUnix: json["launch_date_unix"],
+        launchDateUtc: DateTime.parse(json["launch_date_utc"]),
+        launchDateLocal: DateTime.parse(json["launch_date_local"]),
+        rocket: Rocket.fromJson(json["rocket"]),
+        launchSite: LaunchSite.fromJson(json["launch_site"]),
+      );
 
   Map<String, dynamic> toJson() => {
-    "flight_number": flightNumber,
-    "mission_name": missionName,
-    "launch_year": launchYear,
-    "launch_date_unix": launchDateUnix,
-    "launch_date_utc": launchDateUtc.toIso8601String(),
-    "launch_date_local": launchDateLocal.toIso8601String(),
-    "rocket": rocket.toJson(),
-    "launch_site": launchSite.toJson(),
-  };
+        "flight_number": flightNumber,
+        "mission_name": missionName,
+        "launch_year": launchYear,
+        "launch_date_unix": launchDateUnix,
+        "launch_date_utc": launchDateUtc.toIso8601String(),
+        "launch_date_local": launchDateLocal.toIso8601String(),
+        "rocket": rocket.toJson(),
+        "launch_site": launchSite.toJson(),
+      };
 }
 
 class LaunchSite {
@@ -64,16 +61,16 @@ class LaunchSite {
   final String siteNameLong;
 
   factory LaunchSite.fromJson(Map<String, dynamic> json) => LaunchSite(
-    siteId: json["site_id"],
-    siteName: json["site_name"],
-    siteNameLong: json["site_name_long"],
-  );
+        siteId: json["site_id"],
+        siteName: json["site_name"],
+        siteNameLong: json["site_name_long"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "site_id": siteId,
-    "site_name": siteName,
-    "site_name_long": siteNameLong,
-  };
+        "site_id": siteId,
+        "site_name": siteName,
+        "site_name_long": siteNameLong,
+      };
 }
 
 class Rocket {
@@ -88,14 +85,14 @@ class Rocket {
   final String rocketType;
 
   factory Rocket.fromJson(Map<String, dynamic> json) => Rocket(
-    rocketId: json["rocket_id"],
-    rocketName: json["rocket_name"],
-    rocketType: json["rocket_type"],
-  );
+        rocketId: json["rocket_id"],
+        rocketName: json["rocket_name"],
+        rocketType: json["rocket_type"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "rocket_id": rocketId,
-    "rocket_name": rocketName,
-    "rocket_type": rocketType,
-  };
+        "rocket_id": rocketId,
+        "rocket_name": rocketName,
+        "rocket_type": rocketType,
+      };
 }
